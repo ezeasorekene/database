@@ -1,6 +1,9 @@
 <?php if (!isset($_SESSION)){ session_start(); }
 
 if (isset($_GET['clear']) && ($_GET['clear']==="1")) {
+  //Close any open MySQL connection
+  mysqli_close($con);
+
   //Clear the session data
   session_unset($_SESSION['host']);
   session_unset($_SESSION['user']);
